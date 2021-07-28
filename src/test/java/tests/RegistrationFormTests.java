@@ -12,7 +12,7 @@ import java.io.File;
 import pages.RegistrationPage;
 
 @Tag("smoke")
-public class RegistrationFormTests {
+public class RegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
@@ -36,12 +36,6 @@ public class RegistrationFormTests {
     String address = faker.address().fullAddress();
     String state = "Uttar Pradesh";
     String city = "Agra";
-
-    @BeforeAll
-    static void setup() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.startMaximized = true;
-    }
 
 
     @Test
