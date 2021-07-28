@@ -37,13 +37,6 @@ public class RegistrationFormTests {
     String state = "Uttar Pradesh";
     String city = "Agra";
 
-    @BeforeAll
-    static void setup() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.startMaximized = true;
-    }
-
-
     @Test
     void positiveFillFormTest() {
 
