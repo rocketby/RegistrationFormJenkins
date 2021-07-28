@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.*;
 
@@ -10,6 +11,7 @@ import java.io.File;
 
 import pages.RegistrationPage;
 
+@Tag("smoke")
 public class RegistrationFormTests {
 
     RegistrationPage registrationPage = new RegistrationPage();
