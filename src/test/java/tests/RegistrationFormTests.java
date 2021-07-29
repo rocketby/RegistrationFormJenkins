@@ -1,8 +1,6 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.*;
@@ -11,13 +9,13 @@ import java.io.File;
 
 import pages.RegistrationPage;
 
-@Tag("smoke")
-public class RegistrationFormTests extends TestBase {
-
+public class RegistrationFormTests extends BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
     RandomUtils randomUtils = new RandomUtils();
     DateAndTimeUtils dateAndTimeUtils = new DateAndTimeUtils();
+
+    String URL = "https://demoqa.com/automation-practice-form";
 
     int phoneNumberLength = 10;
     String firstName = faker.name().firstName();
@@ -38,10 +36,11 @@ public class RegistrationFormTests extends TestBase {
     String city = "Agra";
 
 
+
     @Test
     void positiveFillFormTest() {
 
-        registrationPage.openPage();
+        registrationPage.openPage(URL);
 
         registrationPage
                 .setFirstName(firstName)
