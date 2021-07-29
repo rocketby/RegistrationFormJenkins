@@ -1,7 +1,6 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.*;
 
@@ -41,6 +40,7 @@ public class RegistrationFormTests extends BaseTest {
     void positiveFillFormTest() {
 
         registrationPage.openPage(URL);
+        registrationPage.checkRegistrationTitle();
 
         registrationPage
                 .setFirstName(firstName)

@@ -19,6 +19,10 @@ public class RegistrationPage {
     @Step("Open main page")
     public void openPage(String URL) {
         open(URL);
+    }
+
+    @Step("Check, that registration page has correct title")
+    public void checkRegistrationTitle() {
         $(".practice-form-wrapper").shouldHave(text(FORM_TITLE));
     }
 
@@ -101,7 +105,7 @@ public class RegistrationPage {
         $("button#submit").click();
     }
 
-    @Step("Check, that page has title: [{RESULTS_TITLE}]")
+    @Step("Check, that results page has correct title")
     public void checkResultsTitle() {
         $("#example-modal-sizes-title-lg").shouldHave(text(RESULTS_TITLE));
     }
