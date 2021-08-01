@@ -7,11 +7,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utils.Attach;
+import static java.lang.String.format;
+
+import static config.Credentials.credentials;
 
 
 public class BaseTest {
     @BeforeAll
     static void setup() {
+        String login = credentials.login();
+        String password = credentials.password();
+
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -20,7 +27,9 @@ public class BaseTest {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+
+        //in command line such command is used: gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/
+        Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), login, password);
     }
 
     @AfterEach
